@@ -164,6 +164,7 @@ export default function TrashedItems() {
 			</Table>
 			{Array.isArray(items) && items.length === 0 && (
 				<img
+					loading="lazy"
 					src="/assets/folders.jpg"
 					className="mx-auto w-full sm:w-[25rem]"
 					alt="Design by freepik - Image"
