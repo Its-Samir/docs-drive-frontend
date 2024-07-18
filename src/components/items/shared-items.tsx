@@ -5,19 +5,18 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
 } from "../ui/table";
 import { Link, useParams } from "react-router-dom";
 import { apiGetSharedItems } from "../../lib/api-client";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
 import ItemsLoading from "./items-loading";
 import { isAxiosError } from "axios";
 import { formatDate } from "../../lib/utils";
 import { useApiQuery } from "../../hooks/use-api";
+const MediaViewer = lazy(() => import("./media-viewer"));
+const ItemError = lazy(() => import("./item-error"));
 
 export default function SharedItems() {
 	const { itemId } = useParams();
@@ -118,7 +117,6 @@ export default function SharedItems() {
 							</TableRow>
 						))}
 				</TableBody>
-				<TableFooter></TableFooter>
 			</Table>
 			{Array.isArray(items) && items.length === 0 && (
 				<img

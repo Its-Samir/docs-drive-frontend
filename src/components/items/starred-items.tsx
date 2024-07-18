@@ -5,7 +5,6 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
@@ -17,8 +16,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
 import { apiGetStarredItems, apiManageStarredItem } from "../../lib/api-client";
 import { Link, useParams } from "react-router-dom";
 import ItemsLoading from "./items-loading";
@@ -26,6 +23,8 @@ import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
+const MediaViewer = lazy(() => import("./media-viewer"));
+const ItemError = lazy(() => import("./item-error"));
 
 export default function StarredItems() {
 	const { itemId } = useParams();
@@ -150,7 +149,6 @@ export default function StarredItems() {
 							</TableRow>
 						))}
 				</TableBody>
-				<TableFooter></TableFooter>
 			</Table>
 			{Array.isArray(items) && items.length === 0 && (
 				<img

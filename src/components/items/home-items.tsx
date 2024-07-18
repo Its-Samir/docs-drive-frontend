@@ -5,7 +5,6 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
@@ -40,15 +39,17 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-const CreateItem = lazy(() => import("./create-item"));
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ChooseEmail = lazy(() => import("../../pages/dashboard/_components/choose-email"));
-const ItemError = lazy(() => import("./item-error"));
 import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
+const CreateItem = lazy(() => import("./create-item"));
+const MediaViewer = lazy(() => import("./media-viewer"));
+const ChooseEmail = lazy(
+	() => import("../../pages/dashboard/_components/choose-email"),
+);
+const ItemError = lazy(() => import("./item-error"));
 
 export default function HomeItems() {
 	const { itemId } = useParams();
@@ -282,10 +283,10 @@ export default function HomeItems() {
 							</TableRow>
 						))}
 				</TableBody>
-				<TableFooter></TableFooter>
 			</Table>
 			{Array.isArray(items) && items.length === 0 && (
 				<img
+					loading="lazy"
 					src="/assets/folders.jpg"
 					className="mx-auto w-full sm:w-[25rem]"
 					alt="Design by freepik - Image"

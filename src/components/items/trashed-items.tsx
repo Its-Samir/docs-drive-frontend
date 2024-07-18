@@ -5,7 +5,6 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
@@ -17,8 +16,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
 import {
 	apiDeleteItem,
 	apiGetTrashedItems,
@@ -29,6 +26,8 @@ import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
+const MediaViewer = lazy(() => import("./media-viewer"));
+const ItemError = lazy(() => import("./item-error"));
 
 export default function TrashedItems() {
 	const {
@@ -160,7 +159,6 @@ export default function TrashedItems() {
 							</TableRow>
 						))}
 				</TableBody>
-				<TableFooter></TableFooter>
 			</Table>
 			{Array.isArray(items) && items.length === 0 && (
 				<img
