@@ -48,14 +48,14 @@ export default function ManageItem() {
 	if (item)
 		return (
 			<div className="flex w-full flex-col items-start gap-3 p-2 pb-16 sm:p-4">
-				<h1 className="text-lg font-bold text-slate-700 sm:text-2xl">
-					Manage &gt; {item.name} :
+				<h1 className="rounded-md bg-slate-500 px-2 font-mono text-lg font-bold text-white sm:text-2xl">
+					Manage &gt; {item.name}:
 				</h1>
 				<div className="flex flex-col justify-between gap-2 rounded-md p-2 sm:p-4 md:flex-row">
 					{!item.isFolder && (
 						<ShowMedia media={item.media!} mediaType={item.mediaType!} />
 					)}
-					<div className="grid h-fit grid-cols-3 gap-2 rounded-lg bg-slate-100 p-2 *:flex *:flex-col *:gap-1 *:text-xs *:text-slate-600">
+					<div className="grid h-fit grid-cols-3 gap-2 rounded-lg bg-slate-100 p-3 *:flex *:flex-col *:gap-1 *:text-xs *:text-slate-600">
 						<div>
 							<span className="font-bold">Type</span>
 							<span>{item.mediaType ? item.mediaType : "FOLDER"}</span>

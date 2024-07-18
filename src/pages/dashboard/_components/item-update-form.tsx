@@ -40,7 +40,10 @@ export const ItemUpdateForm = memo(
 				/>
 				<Button
 					aria-label="Update item"
-					disabled={isPending}
+					disabled={
+						isPending ||
+						(item.name === name && item.isPrivate === isPrivate)
+					}
 					onClick={() =>
 						onMutate({
 							itemId: item.id,
