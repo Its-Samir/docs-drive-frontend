@@ -14,7 +14,7 @@ export default function Navbar() {
 	});
 
 	return (
-		<nav className="flex items-center justify-between border-b px-2 py-2 sm:px-4">
+		<nav className="flex items-center justify-between border-b px-2 py-2 md:px-1">
 			<h1 className="text-lg font-bold text-neutral-700 sm:text-2xl">
 				<Link to={"/"}>
 					<span className="flex items-center gap-1 bg-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text font-extrabold text-transparent sm:gap-2">

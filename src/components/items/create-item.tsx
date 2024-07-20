@@ -98,8 +98,8 @@ const CreateItem = memo(
 							{openSelection.isFolder === undefined
 								? "Select an item"
 								: openSelection.isFolder
-									? "Add folder name"
-									: "Choose file"}
+									? "Folder Name"
+									: "Choose File"}
 						</DialogTitle>
 					</DialogHeader>
 					{typeof openSelection.isFolder === "undefined" && (
@@ -138,12 +138,16 @@ const CreateItem = memo(
 										}
 									/>
 									<Button
+										className="ml-auto w-fit"
 										disabled={!itemName || isPending}
 										onClick={mutate}
 										size={"sm"}
 									>
 										{isPending ? (
-											<Loader2 className="animate-spin" />
+											<span className="item-center flex gap-2">
+												<Loader2 className="animate-spin" />
+												Loading...
+											</span>
 										) : (
 											"ADD FOLDER"
 										)}
@@ -182,12 +186,16 @@ const CreateItem = memo(
 										}
 									/>
 									<Button
+										className="ml-auto w-fit"
 										disabled={!itemName || !file || isPending}
 										onClick={mutate}
 										size={"sm"}
 									>
 										{isPending ? (
-											<Loader2 className="animate-spin" />
+											<span className="item-center flex gap-2">
+												<Loader2 className="animate-spin" />
+												Loading...
+											</span>
 										) : (
 											"DONE"
 										)}
