@@ -29,13 +29,16 @@ export default function Login() {
 
 	const [isChecked, setIsChecked] = useState(false);
 
-	const { mutate, isPending } = useApiMutation<
-		Awaited<ReturnType<typeof apiLogin>>
-	>(["login"], apiLogin, [], (data) => {
-		localStorage.setItem("data", JSON.stringify(data));
-		toast.success("Login successfull");
-		window.location.href = "/dashboard/home/~";
-	});
+	const { mutate, isPending } = useApiMutation(
+		["login"],
+		apiLogin,
+		[],
+		(data) => {
+			localStorage.setItem("data", JSON.stringify(data));
+			toast.success("Login successfull");
+			window.location.href = "/dashboard/home/~";
+		},
+	);
 
 	return (
 		<div className="flex min-h-[80vh] items-center justify-center gap-4 rounded-sm p-2">

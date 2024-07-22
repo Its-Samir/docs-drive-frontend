@@ -28,7 +28,7 @@ const CreateItem = memo(
 		});
 
 		const { mutate, isPending } = useApiMutation(
-			["mutate-create"],
+			["mutate-create-item"],
 			async () => {
 				if (openSelection.isFolder) {
 					return apiCreateItem({
@@ -144,7 +144,7 @@ const CreateItem = memo(
 										size={"sm"}
 									>
 										{isPending ? (
-											<span className="item-center flex gap-2">
+											<span className="items-center flex gap-2">
 												<Loader2 className="animate-spin" />
 												Loading...
 											</span>
@@ -192,7 +192,7 @@ const CreateItem = memo(
 										size={"sm"}
 									>
 										{isPending ? (
-											<span className="item-center flex gap-2">
+											<span className="items-center flex gap-2">
 												<Loader2 className="animate-spin" />
 												Loading...
 											</span>

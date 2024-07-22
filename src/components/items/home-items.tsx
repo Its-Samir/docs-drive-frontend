@@ -41,7 +41,6 @@ import {
 } from "../ui/dropdown-menu";
 import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
-import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
 const CreateItem = lazy(() => import("./create-item"));
@@ -97,10 +96,6 @@ export default function HomeItems() {
 	}
 
 	if (isError && error) {
-		if (isAxiosError(error) && error.response?.status === 401) {
-			window.location.href = "/login";
-		}
-
 		return <ItemError error={error} />;
 	}
 

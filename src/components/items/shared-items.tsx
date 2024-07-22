@@ -12,7 +12,6 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { apiGetSharedItems } from "../../lib/api-client";
 import ItemsLoading from "./items-loading";
-import { isAxiosError } from "axios";
 import { formatDate } from "../../lib/utils";
 import { useApiQuery } from "../../hooks/use-api";
 const MediaViewer = lazy(() => import("./media-viewer"));
@@ -34,10 +33,6 @@ export default function SharedItems() {
 	}
 
 	if (isError && error) {
-		if (isAxiosError(error) && error.response?.status === 401) {
-			window.location.href = "/login";
-		}
-
 		return <ItemError error={error} />;
 	}
 

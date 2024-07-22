@@ -11,10 +11,25 @@ const ItemError = memo(({ error }: { error: Error }) => {
 		>
 			<AlertCircle size={18} />
 			{isAxiosError(error) ? (
-				<div>
-					<AlertTitle>{error.response?.statusText}</AlertTitle>
-					<AlertDescription>{error.response?.data.error}</AlertDescription>
-				</div>
+				error.response?.status === 401 ? (
+					<div>
+						<AlertTitle>{error.response?.statusText}</AlertTitle>
+						<AlertDescription>
+							{error.response?.data.error}, try to{" "}
+							<a className="underline" href="/login">
+								login
+							</a>{" "}
+							again
+						</AlertDescription>
+					</div>
+				) : (
+					<div>
+						<AlertTitle>{error.response?.statusText}</AlertTitle>
+						<AlertDescription>
+							{error.response?.data.error}
+						</AlertDescription>
+					</div>
+				)
 			) : (
 				<div>
 					<AlertTitle>Error</AlertTitle>

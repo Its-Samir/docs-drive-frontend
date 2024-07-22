@@ -20,7 +20,6 @@ import { apiGetStarredItems, apiManageStarredItem } from "../../lib/api-client";
 import { Link, useParams } from "react-router-dom";
 import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
-import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
 const MediaViewer = lazy(() => import("./media-viewer"));
@@ -51,10 +50,6 @@ export default function StarredItems() {
 	}
 
 	if (isError && error) {
-		if (isAxiosError(error) && error.response?.status === 401) {
-			window.location.href = "/login";
-		}
-
 		return <ItemError error={error} />;
 	}
 

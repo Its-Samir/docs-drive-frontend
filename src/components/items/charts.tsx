@@ -13,9 +13,8 @@ import {
 	Tooltip,
 } from "recharts";
 import { apiGetItemsCount } from "../../lib/api-client";
-const ItemError = lazy(() => import("./item-error"));
 import ItemsLoading from "./items-loading";
-import { isAxiosError } from "axios";
+const ItemError = lazy(() => import("./item-error"));
 
 export default function Charts() {
 	const { data, isLoading, isError, error } = useQuery({
@@ -61,10 +60,6 @@ export default function Charts() {
 	}
 
 	if (isError && error) {
-		if (isAxiosError(error) && error.response?.status === 401) {
-			window.location.href = "/login";
-		}
-
 		return <ItemError error={error} />;
 	}
 
