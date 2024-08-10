@@ -14,6 +14,7 @@ import { apiGetSharedItems } from "../../lib/api-client";
 import ItemsLoading from "./items-loading";
 import { formatDate } from "../../lib/utils";
 import { useApiQuery } from "../../hooks/use-api";
+import { useQuery } from "@tanstack/react-query";
 const MediaViewer = lazy(() => import("./media-viewer"));
 const ItemError = lazy(() => import("./item-error"));
 
@@ -24,8 +25,10 @@ export default function SharedItems() {
 		isLoading,
 		isError,
 		error,
-	} = useApiQuery(["query-shared-items", `${itemId}`], apiGetSharedItems, {
-		itemId: `${itemId}`,
+	} = useQuery({
+		queryKey: ["query-shared-items", `${itemId}`],
+		queryFn: ({ signal }) =>
+			apiGetSharedItems({ itemId: `${itemId}`, signal }),
 	});
 
 	if (isLoading) {

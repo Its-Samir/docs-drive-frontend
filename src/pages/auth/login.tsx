@@ -81,9 +81,11 @@ export default function Login() {
 									<FormLabel htmlFor="email">Email</FormLabel>
 									<Input
 										{...field}
-										placeholder="test@test.com"
+										type="email"
+										placeholder="john@email.com"
 										id="email"
 										autoComplete="false"
+										aria-label="Enter email"
 									/>
 									<FormMessage />
 								</FormItem>
@@ -100,6 +102,7 @@ export default function Login() {
 										type={isChecked ? "text" : "password"}
 										placeholder="******"
 										id="password"
+										aria-label="Enter password"
 									/>
 									<FormMessage />
 								</FormItem>

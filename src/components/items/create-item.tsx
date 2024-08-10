@@ -144,12 +144,12 @@ const CreateItem = memo(
 										size={"sm"}
 									>
 										{isPending ? (
-											<span className="items-center flex gap-2">
+											<span className="flex items-center gap-2">
 												<Loader2 className="animate-spin" />
 												Loading...
 											</span>
 										) : (
-											"ADD FOLDER"
+											"CREATE"
 										)}
 									</Button>
 								</>
@@ -192,12 +192,12 @@ const CreateItem = memo(
 										size={"sm"}
 									>
 										{isPending ? (
-											<span className="items-center flex gap-2">
+											<span className="flex items-center gap-2">
 												<Loader2 className="animate-spin" />
 												Loading...
 											</span>
 										) : (
-											"DONE"
+											"UPLOAD"
 										)}
 									</Button>
 								</>

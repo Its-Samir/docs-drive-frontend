@@ -11,6 +11,7 @@ import { isAxiosError } from "axios";
 import { formatDate } from "../../../lib/utils";
 import ItemUpdateForm from "./item-update-form";
 import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
 
 export default function ManageItem() {
 	const { itemId } = useParams();
@@ -20,8 +21,9 @@ export default function ManageItem() {
 		isLoading,
 		isError,
 		error,
-	} = useApiQuery(["query-item", `${itemId}`], apiGetItemInfo, {
-		itemId: `${itemId}`,
+	} = useQuery({
+		queryKey: ["query-item", `${itemId}`],
+		queryFn: ({ signal }) => apiGetItemInfo({ itemId: `${itemId}`, signal }),
 	});
 
 	const { mutate, isPending } = useApiMutation(
@@ -74,7 +76,7 @@ export default function ManageItem() {
 						</div>
 						<div>
 							<span className="font-bold">CreatedAt</span>
-							<span>{formatDate(item.createdAt.toString())}</span>
+							<span>{formatDate(item.createdAt)}</span>
 						</div>
 						<div>
 							<span className="font-bold">UpdatedAt</span>

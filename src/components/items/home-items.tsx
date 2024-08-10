@@ -43,6 +43,7 @@ import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
+import { useQuery } from "@tanstack/react-query";
 const CreateItem = lazy(() => import("./create-item"));
 const MediaViewer = lazy(() => import("./media-viewer"));
 const ChooseEmail = lazy(
@@ -62,8 +63,9 @@ export default function HomeItems() {
 		isLoading,
 		isError,
 		error,
-	} = useApiQuery(["query-items", `${itemId}`], apiGetItems, {
-		itemId: `${itemId}`,
+	} = useQuery({
+		queryKey: ["query-items", `${itemId}`],
+		queryFn: ({ signal }) => apiGetItems({ itemId: `${itemId}`, signal }),
 	});
 
 	const sortedItems = useSortedItems(Array.isArray(items) ? items : [], [

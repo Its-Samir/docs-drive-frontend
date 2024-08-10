@@ -4,6 +4,12 @@ import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { isAxiosError } from "axios";
 
 const ItemError = memo(({ error }: { error: Error }) => {
+	if (isAxiosError(error)) {
+		if (error.response?.status === 401) {
+			localStorage.removeItem("data");
+		}
+	}
+
 	return (
 		<Alert
 			variant="destructive"
@@ -21,6 +27,11 @@ const ItemError = memo(({ error }: { error: Error }) => {
 							</a>{" "}
 							again
 						</AlertDescription>
+					</div>
+				) : error.code === "ERR_NETWORK" ? (
+					<div>
+						<AlertTitle>{error.code}</AlertTitle>
+						<AlertDescription>{error.message}</AlertDescription>
 					</div>
 				) : (
 					<div>

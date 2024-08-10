@@ -12,6 +12,11 @@ export default function GoogleSignIn() {
 				);
 			}}
 		>
+			<img
+				src="/assets/Google_Icon.png"
+				alt="google-icon"
+				className="h-[120%]"
+			/>
 			Google
 		</Button>
 	);

@@ -104,7 +104,8 @@ export default function Register() {
 									<FormLabel htmlFor="email">Email</FormLabel>
 									<Input
 										{...field}
-										placeholder="test@test.com"
+										type="email"
+										placeholder="john@email.com"
 										id="email"
 										autoComplete="false"
 										aria-label="Enter email"

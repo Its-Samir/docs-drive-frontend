@@ -3,14 +3,23 @@ import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { queryClient } from "../lib/api-client";
 
-export const useApiQuery = <T>(
+export const useApiQuery = <
+	U,
+	T extends (
+		args: Parameters<
+			U extends (...args: infer P) => Promise<U>
+				? (...args: P) => Promise<U>
+				: never
+		>,
+	) => Promise<U>,
+>(
 	keys: string[],
-	fn: (...args: any) => Promise<T>,
-	params?: { [key: string]: string },
+	fn: (...args: any) => Promise<U>,
+	params?: Parameters<T>,
 ) => {
 	return useQuery({
 		queryKey: keys,
-		queryFn: ({ signal }) => fn({ ...params, signal }),
+		queryFn: () => fn({ ...params }),
 		select: (data) => data,
 	});
 };

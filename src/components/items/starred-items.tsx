@@ -22,6 +22,7 @@ import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
+import { useQuery } from "@tanstack/react-query";
 const MediaViewer = lazy(() => import("./media-viewer"));
 const ItemError = lazy(() => import("./item-error"));
 
@@ -32,8 +33,10 @@ export default function StarredItems() {
 		isLoading,
 		isError,
 		error,
-	} = useApiQuery(["query-starred-items", `${itemId}`], apiGetStarredItems, {
-		itemId: `${itemId}`,
+	} = useQuery({
+		queryKey: ["query-starred-items", `${itemId}`],
+		queryFn: ({ signal }) =>
+			apiGetStarredItems({ itemId: `${itemId}`, signal }),
 	});
 
 	const { mutate } = useApiMutation(

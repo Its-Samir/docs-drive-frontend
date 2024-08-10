@@ -19,14 +19,16 @@ import { memo, useState } from "react";
 import { apiGetUsers, apiShare } from "../../../lib/api-client";
 import { useApiMutation, useApiQuery } from "../../../hooks/use-api";
 import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
 
 const ChooseEmail = memo(({ itemId }: { itemId: string }) => {
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState("");
 	const [selectedEmail, setSelectedEmail] = useState("");
 
-	const { refetch, data } = useApiQuery(["query-users"], apiGetUsers, {
-		email: value,
+	const { refetch, data } = useQuery({
+		queryKey: ["query-users"],
+		queryFn: ({ signal }) => apiGetUsers({ email: value, signal }),
 	});
 
 	const { mutate } = useApiMutation(
