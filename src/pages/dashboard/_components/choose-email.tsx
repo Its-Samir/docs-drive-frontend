@@ -17,7 +17,7 @@ import {
 } from "../../../components/ui/popover";
 import { memo, useState } from "react";
 import { apiGetUsers, apiShare } from "../../../lib/api-client";
-import { useApiMutation, useApiQuery } from "../../../hooks/use-api";
+import { useApiMutation } from "../../../hooks/use-api";
 import { toast } from "sonner";
 import { useQuery } from "@tanstack/react-query";
 

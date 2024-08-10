@@ -13,7 +13,6 @@ import { Link, useParams } from "react-router-dom";
 import { apiGetSharedItems } from "../../lib/api-client";
 import ItemsLoading from "./items-loading";
 import { formatDate } from "../../lib/utils";
-import { useApiQuery } from "../../hooks/use-api";
 import { useQuery } from "@tanstack/react-query";
 const MediaViewer = lazy(() => import("./media-viewer"));
 const ItemError = lazy(() => import("./item-error"));

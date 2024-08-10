@@ -2,16 +2,16 @@ import { lazy } from "react";
 import { useParams } from "react-router-dom";
 import { apiGetItemInfo, apiUpdateItem } from "../../../lib/api-client";
 import UserCard from "./user-card";
-const ChooseEmail = lazy(() => import("./choose-email"));
-const ItemError = lazy(() => import("../../../components/items/item-error"));
 import ShowMedia from "./show-media";
 import ItemsLoading from "../../../components/items/items-loading";
-import { useApiMutation, useApiQuery } from "../../../hooks/use-api";
+import { useApiMutation } from "../../../hooks/use-api";
 import { isAxiosError } from "axios";
 import { formatDate } from "../../../lib/utils";
 import ItemUpdateForm from "./item-update-form";
 import { toast } from "sonner";
 import { useQuery } from "@tanstack/react-query";
+const ChooseEmail = lazy(() => import("./choose-email"));
+const ItemError = lazy(() => import("../../../components/items/item-error"));
 
 export default function ManageItem() {
 	const { itemId } = useParams();
@@ -76,7 +76,7 @@ export default function ManageItem() {
 						</div>
 						<div>
 							<span className="font-bold">CreatedAt</span>
-							<span>{formatDate(item.createdAt)}</span>
+							<span>{formatDate(item.createdAt.toString())}</span>
 						</div>
 						<div>
 							<span className="font-bold">UpdatedAt</span>

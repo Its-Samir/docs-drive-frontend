@@ -40,7 +40,7 @@ import {
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import ItemsLoading from "./items-loading";
-import { useApiMutation, useApiQuery } from "../../hooks/use-api";
+import { useApiMutation } from "../../hooks/use-api";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
