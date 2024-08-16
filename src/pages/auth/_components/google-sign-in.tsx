@@ -3,7 +3,7 @@ import { Button } from "../../../components/ui/button";
 export default function GoogleSignIn() {
 	return (
 		<Button
-			className="flex items-center gap-2"
+			className="flex items-center gap-1"
 			variant={"outline"}
 			onClick={() => {
 				window.open(

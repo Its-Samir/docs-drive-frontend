@@ -75,7 +75,7 @@ export default function SharedItems() {
 										<div className="flex items-center gap-2">
 											<Folder />
 											<Link
-												to={`/dashboard/sharedwithme/${item.id}`}
+												to={`/dashboard/sharedwithme/folder/${item.id}`}
 												className="w-[5rem] truncate md:w-[10rem]"
 												title={item.name}
 											>

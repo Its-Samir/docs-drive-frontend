@@ -49,17 +49,17 @@ function App() {
 						path="dashboard"
 						element={user ? <Dashboard /> : <Navigate to={"/login"} />}
 					>
-						<Route path="home/:itemId" element={<HomeItems />} />
+						<Route path="home/folder/:itemId" element={<HomeItems />} />
 						<Route
-							path="sharedwithme/:itemId"
+							path="sharedwithme/folder/:itemId"
 							element={<SharedItems />}
 						/>
-						<Route path="starred/:itemId" element={<StarredItems />} />
-						<Route path="trash" element={<TrashedItems />} />
 						<Route
-							path="manage-permissions/:itemId"
-							element={<ManageItem />}
+							path="starred/folder/:itemId"
+							element={<StarredItems />}
 						/>
+						<Route path="trash" element={<TrashedItems />} />
+						<Route path="manage/:itemId" element={<ManageItem />} />
 						<Route path="analytics" element={<Charts />} />
 						<Route path="*" element={<p>Page Not Found</p>} />
 					</Route>
