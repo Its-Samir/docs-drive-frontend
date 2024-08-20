@@ -30,38 +30,55 @@ function App() {
 					<Route
 						path="/login"
 						element={
-							user ? <Navigate to={"/dashboard/home/~"} /> : <Login />
+							user ? (
+								<Navigate to={"/dashboard/home/folders/~"} />
+							) : (
+								<Login />
+							)
 						}
 					/>
 					<Route
 						path="/register"
 						element={
-							user ? <Navigate to={"/dashboard/home/~"} /> : <Register />
+							user ? (
+								<Navigate to={"/dashboard/home/folders/~"} />
+							) : (
+								<Register />
+							)
 						}
 					/>
 					<Route
 						path="/authenticate"
 						element={
-							user ? <Navigate to={"/dashboard/home/~"} /> : <OAuth />
+							user ? (
+								<Navigate to={"/dashboard/home/folders/~"} />
+							) : (
+								<OAuth />
+							)
 						}
 					/>
 					<Route
 						path="dashboard"
 						element={user ? <Dashboard /> : <Navigate to={"/login"} />}
 					>
-						<Route path="home/folder/:itemId" element={<HomeItems />} />
+						<Route path="home/folders/:itemId" element={<HomeItems />} />
 						<Route
-							path="sharedwithme/folder/:itemId"
+							path="sharedwithme/folders/:itemId"
 							element={<SharedItems />}
 						/>
 						<Route
-							path="starred/folder/:itemId"
+							path="starred/folders/:itemId"
 							element={<StarredItems />}
 						/>
 						<Route path="trash" element={<TrashedItems />} />
 						<Route path="manage/:itemId" element={<ManageItem />} />
 						<Route path="analytics" element={<Charts />} />
-						<Route path="*" element={<p>Page Not Found</p>} />
+						<Route
+							path="*"
+							element={
+								<p className="m-2 text-2xl font-bold">Page Not Found</p>
+							}
+						/>
 					</Route>
 				</Routes>
 			</Suspense>

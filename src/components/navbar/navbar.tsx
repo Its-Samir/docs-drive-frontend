@@ -29,7 +29,7 @@ export default function Navbar() {
 			</h1>
 			{user && user.user.id ? (
 				<div className="flex items-center gap-3">
-					<Link to={"/dashboard/home/~"}>
+					<Link to={"/dashboard/home/folders/~"}>
 						<Button
 							aria-label="Go to Dashboard"
 							name="dashboard-btn"

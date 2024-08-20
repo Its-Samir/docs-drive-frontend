@@ -191,7 +191,7 @@ export default function HomeItems() {
 										<div className="flex items-center gap-2">
 											<Folder />
 											<Link
-												to={`/dashboard/home/folder/${item.id}`}
+												to={`/dashboard/home/folders/${item.id}`}
 												className="w-[5rem] truncate md:w-[10rem]"
 												title={item.name}
 											>

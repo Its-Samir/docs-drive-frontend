@@ -92,7 +92,7 @@ export default function StarredItems() {
 										<div className="flex items-center gap-2">
 											<Folder />
 											<Link
-												to={`/dashboard/starred/folder/${item.id}`}
+												to={`/dashboard/starred/folders/${item.id}`}
 												className="w-[5rem] truncate md:w-[10rem]"
 											>
 												{item.name}

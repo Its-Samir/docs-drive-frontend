@@ -13,19 +13,19 @@ export const paths: Path[] = [
 		id: Math.floor(Math.random() * 1000000).toString(),
 		icon: <Home size={18} />,
 		name: "Home",
-		path: "home/~",
+		path: "home/folders/~",
 	},
 	{
 		id: Math.floor(Math.random() * 1000000).toString(),
 		name: "Shared With Me",
 		icon: <Share2Icon size={18} />,
-		path: "sharedwithme/~",
+		path: "sharedwithme/folders/~",
 	},
 	{
 		id: Math.floor(Math.random() * 1000000).toString(),
 		name: "Starred",
 		icon: <Star size={18} />,
-		path: "starred/~",
+		path: "starred/folders/~",
 	},
 	{
 		id: Math.floor(Math.random() * 1000000).toString(),

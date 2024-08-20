@@ -15,7 +15,7 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "../../../components/ui/popover";
-import { memo, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { apiGetUsers, apiShare } from "../../../lib/api-client";
 import { useApiMutation } from "../../../hooks/use-api";
 import { toast } from "sonner";
@@ -25,6 +25,7 @@ const ChooseEmail = memo(({ itemId }: { itemId: string }) => {
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState("");
 	const [selectedEmail, setSelectedEmail] = useState("");
+	const lastVal = useRef<NodeJS.Timeout | null>(null);
 
 	const { refetch, data } = useQuery({
 		queryKey: ["query-users"],
@@ -39,6 +40,19 @@ const ChooseEmail = memo(({ itemId }: { itemId: string }) => {
 			toast.success(data.message);
 		},
 	);
+
+	const handleSearch = (val: string) => {
+		setValue(val);
+
+		if (lastVal.current) {
+			clearTimeout(lastVal.current);
+		}
+
+		lastVal.current = setTimeout(() => {
+			lastVal.current = null;
+			refetch({ cancelRefetch: false });
+		}, 600);
+	};
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
@@ -56,12 +70,7 @@ const ChooseEmail = memo(({ itemId }: { itemId: string }) => {
 			<PopoverContent className="w-[200px] p-0">
 				<Command>
 					<CommandInput
-						onValueChange={(val) => {
-							setValue(val);
-							if (val !== value) {
-								refetch({ cancelRefetch: false });
-							}
-						}}
+						onValueChange={handleSearch}
 						placeholder="Search email..."
 					/>
 					<CommandEmpty>No email found.</CommandEmpty>

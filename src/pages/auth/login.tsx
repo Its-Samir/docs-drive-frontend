@@ -36,7 +36,7 @@ export default function Login() {
 		(data) => {
 			localStorage.setItem("data", JSON.stringify(data));
 			toast.success("Login successfull");
-			window.location.href = "/dashboard/home/~";
+			window.location.href = "/dashboard/home/folders/~";
 		},
 	);
 
