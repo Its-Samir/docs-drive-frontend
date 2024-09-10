@@ -25,8 +25,8 @@ import ItemsLoading from "./items-loading";
 import { useApiMutation, useApiQuery } from "../../hooks/use-api";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
+import ItemError from "./item-error";
+import MediaViewer from "./media-viewer";
 
 export default function TrashedItems() {
 	const {
@@ -39,7 +39,7 @@ export default function TrashedItems() {
 	const { mutate: restoreItem } = useApiMutation(
 		["mutate-restore-items"],
 		apiRestoreFromTrash,
-		["query-trashed-items", "query-items"],
+		["query-trashed-items", "query-items", "query-items-count"],
 		(data) => {
 			toast.success(data.message);
 		},
@@ -48,7 +48,7 @@ export default function TrashedItems() {
 	const { mutate: deleteItem } = useApiMutation(
 		["mutate-delete-items"],
 		apiDeleteItem,
-		["query-trashed-items"],
+		["query-trashed-items", "query-items-count"],
 		(data) => {
 			toast.success(data.message);
 		},

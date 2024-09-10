@@ -14,8 +14,8 @@ import { apiGetSharedItems } from "../../lib/api-client";
 import ItemsLoading from "./items-loading";
 import { formatDate } from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
+import ItemError from "./item-error";
+import MediaViewer from "./media-viewer";
 
 export default function SharedItems() {
 	const { itemId } = useParams();

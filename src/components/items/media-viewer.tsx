@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { MediaType } from "../../lib/types";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
@@ -8,7 +7,7 @@ interface MediaViewerProps {
 	children: React.ReactNode;
 }
 
-const MediaViewer = memo(({ url, mediaType, children }: MediaViewerProps) => {
+const MediaViewer = ({ url, mediaType, children }: MediaViewerProps) => {
 	return (
 		<Dialog>
 			<DialogTrigger>{children}</DialogTrigger>
@@ -65,6 +64,6 @@ const MediaViewer = memo(({ url, mediaType, children }: MediaViewerProps) => {
 			</DialogContent>
 		</Dialog>
 	);
-});
+};
 
 export default MediaViewer;

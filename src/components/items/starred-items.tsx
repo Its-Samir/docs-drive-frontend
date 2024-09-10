@@ -23,8 +23,8 @@ import { useApiMutation } from "../../hooks/use-api";
 import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
-const MediaViewer = lazy(() => import("./media-viewer"));
-const ItemError = lazy(() => import("./item-error"));
+import ItemError from "./item-error";
+import MediaViewer from "./media-viewer";
 
 export default function StarredItems() {
 	const { itemId } = useParams();

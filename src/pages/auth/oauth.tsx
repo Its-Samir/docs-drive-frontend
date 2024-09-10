@@ -20,10 +20,10 @@ export default function OAuth() {
 							}),
 						);
 
-						window.location.href = "/dashboard/home/~";
+						window.location.href = "/dashboard/home/folders/~";
 					}
 				})
-				.catch((_) => window.location.href = "/login");
+				.catch((_) => (window.location.href = "/login"));
 		}
 	}, []);
 

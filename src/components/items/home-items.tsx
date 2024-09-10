@@ -45,11 +45,11 @@ import { toast } from "sonner";
 import { formatDate } from "../../lib/utils";
 import { useQuery } from "@tanstack/react-query";
 const CreateItem = lazy(() => import("./create-item"));
-const MediaViewer = lazy(() => import("./media-viewer"));
 const ChooseEmail = lazy(
 	() => import("../../pages/dashboard/_components/choose-email"),
 );
-const ItemError = lazy(() => import("./item-error"));
+import ItemError from "./item-error";
+import MediaViewer from "./media-viewer";
 
 export default function HomeItems() {
 	const { itemId } = useParams();
@@ -78,7 +78,7 @@ export default function HomeItems() {
 	const { mutate: makeTrashed } = useApiMutation(
 		["mutate-trashed-items"],
 		apiMakeTrash,
-		["query-items", "query-trashed-items"],
+		["query-items", "query-trashed-items", "query-items-count"],
 		(data) => {
 			toast.success(data.message);
 		},
@@ -87,7 +87,7 @@ export default function HomeItems() {
 	const { mutate: makeStarred } = useApiMutation(
 		["mutate-starred-items"],
 		apiManageStarredItem,
-		["query-items", "query-starred-items"],
+		["query-items", "query-starred-items", "query-items-count"],
 		(data) => {
 			toast.success(data.message);
 		},

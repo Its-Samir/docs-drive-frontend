@@ -10,8 +10,8 @@ import { formatDate } from "../../../lib/utils";
 import ItemUpdateForm from "./item-update-form";
 import { toast } from "sonner";
 import { useQuery } from "@tanstack/react-query";
+import ItemError from "../../../components/items/item-error";
 const ChooseEmail = lazy(() => import("./choose-email"));
-const ItemError = lazy(() => import("../../../components/items/item-error"));
 
 export default function ManageItem() {
 	const { itemId } = useParams();

@@ -22,7 +22,7 @@ export default function Home() {
 			<div className="flex items-center gap-2">
 				<Button variant={"outline"}>Prices</Button>
 				{user && user.user.id ? (
-					<Link to={"/dashboard/home/~"}>
+					<Link to={"/dashboard/home/folders/~"}>
 						<Button>Go to Dashboard</Button>
 					</Link>
 				) : (

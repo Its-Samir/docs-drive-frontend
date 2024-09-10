@@ -1,9 +1,8 @@
-import { memo } from "react";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { isAxiosError } from "axios";
 
-const ItemError = memo(({ error }: { error: Error }) => {
+const ItemError = ({ error }: { error: Error }) => {
 	if (isAxiosError(error)) {
 		if (error.response?.status === 401) {
 			localStorage.removeItem("data");
@@ -52,6 +51,6 @@ const ItemError = memo(({ error }: { error: Error }) => {
 			)}
 		</Alert>
 	);
-});
+};
 
 export default ItemError;

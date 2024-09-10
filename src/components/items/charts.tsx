@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import { apiGetItemsCount } from "../../lib/api-client";
 import ItemsLoading from "./items-loading";
-const ItemError = lazy(() => import("./item-error"));
+import ItemError from "./item-error";
 
 export default function Charts() {
 	const { data, isLoading, isError, error } = useQuery({
