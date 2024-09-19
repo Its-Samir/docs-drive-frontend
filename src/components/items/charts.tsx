@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { lazy, useCallback } from "react";
+import { useCallback } from "react";
 import {
 	PieChart,
 	Legend,

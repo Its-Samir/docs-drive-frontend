@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import { File, Folder, MoreHorizontal } from "lucide-react";
 import {
 	Table,

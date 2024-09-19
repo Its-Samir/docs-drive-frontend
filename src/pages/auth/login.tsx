@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/ui/button";
 import {
@@ -28,16 +28,23 @@ export default function Login() {
 	});
 
 	const [isChecked, setIsChecked] = useState(false);
-
 	const { mutate, isPending } = useApiMutation(
 		["login"],
 		apiLogin,
 		[],
 		(data) => {
 			localStorage.setItem("data", JSON.stringify(data));
-			toast.success("Login successfull");
+			toast.success("Login successful");
 			window.location.href = "/dashboard/home/folders/~";
 		},
+	);
+
+	useEffect(
+		() =>
+			alert(
+				"We're using cookies: \nBefore login or signup, please make sure your browser cookies are enabled.",
+			),
+		[],
 	);
 
 	return (

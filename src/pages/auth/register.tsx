@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/ui/button";
 import {
@@ -41,6 +41,14 @@ export default function Register() {
 			toast.success(data.message);
 			navigate("/login");
 		},
+	);
+
+	useEffect(
+		() =>
+			alert(
+				"We're using cookies: \nBefore login or signup, please make sure your browser cookies are enabled.",
+			),
+		[],
 	);
 
 	return (
