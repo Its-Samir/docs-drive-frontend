@@ -106,17 +106,17 @@ const CreateItem = memo(
 						<div className="jusitfy-center flex items-center gap-3 p-4">
 							<div
 								onClick={() => handleSelection("file")}
-								className="flex cursor-pointer flex-col items-center gap-2 p-2 hover:bg-slate-200"
+								className="flex cursor-pointer flex-col gap-2 p-2 hover:bg-slate-200 sm:items-center"
 							>
 								<File size={50} />
-								<span>File</span>
+								<span>Upload File</span>
 							</div>
 							<div
 								onClick={() => handleSelection("folder")}
-								className="flex cursor-pointer flex-col items-center gap-2 p-2 hover:bg-slate-200"
+								className="flex cursor-pointer flex-col gap-2 p-2 hover:bg-slate-200 sm:items-center"
 							>
 								<Folder size={50} />
-								<span>Folder</span>
+								<span>Create Folder</span>
 							</div>
 						</div>
 					)}

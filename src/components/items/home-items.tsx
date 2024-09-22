@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { File, Folder, MoreHorizontal } from "lucide-react";
+import { File, Folder, MoreHorizontal, Plus } from "lucide-react";
 import {
 	Table,
 	TableBody,
@@ -105,8 +105,13 @@ export default function HomeItems() {
 		<div className="flex w-full flex-col space-y-3 py-2 pb-16">
 			<div className="flex flex-col items-start justify-between gap-3 px-2 md:flex-row md:items-center md:px-0">
 				<CreateItem itemId={itemId!}>
-					<Button name="upload-btn" aria-label="Upload item" size={"sm"}>
-						UPLOAD
+					<Button
+						className="flex flex-row items-center gap-1"
+						name="upload-btn"
+						aria-label="Upload item"
+						size={"sm"}
+					>
+						<Plus size={15} /> NEW
 					</Button>
 				</CreateItem>
 				{Array.isArray(items) && items.length > 0 && (

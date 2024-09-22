@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/ui/button";
 import {
@@ -21,6 +21,7 @@ import { useApiMutation } from "../../hooks/use-api";
 
 export default function Register() {
 	const navigate = useNavigate();
+	const [showMessageBox, setShowMessageBox] = useState(true);
 
 	const form = useForm<z.infer<typeof registerFormSchema>>({
 		resolver: zodResolver(registerFormSchema),
@@ -43,16 +44,27 @@ export default function Register() {
 		},
 	);
 
-	useEffect(
-		() =>
-			alert(
-				"We're using cookies: \nBefore login or signup, please make sure your browser cookies are enabled.",
-			),
-		[],
+	let messageBoxElem = (
+		<div className="fixed bottom-0 right-0 m-4 space-y-1 rounded-md border bg-white/90 p-4 text-sm backdrop-blur-sm sm:w-[20rem] sm:text-base">
+			<h1 className="text-xl font-semibold lg:text-2xl">
+				We're using cookies
+			</h1>
+			<p>
+				Before login or signup, please make sure your browser cookies are
+				enabled.
+			</p>
+			<button
+				className="rounded-sm border px-4 py-1 font-semibold"
+				onClick={() => setShowMessageBox((p) => !p)}
+			>
+				Close
+			</button>
+		</div>
 	);
 
 	return (
 		<div className="flex min-h-[80vh] items-center justify-center gap-4 rounded-sm p-2">
+			{showMessageBox ? messageBoxElem : null}
 			<div className="hidden h-[27rem] w-[50%] flex-col gap-4 bg-slate-100 p-4 md:flex">
 				<h1 className="flex items-center gap-1 sm:gap-2">
 					<img src="/vite.svg" alt="vite-logo" className="w-[1.5rem]" />{" "}
