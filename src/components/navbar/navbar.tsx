@@ -19,11 +19,10 @@ export default function Navbar() {
 				<Link to={"/"}>
 					<span className="flex items-center gap-1 bg-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text font-extrabold text-transparent sm:gap-2">
 						<img
-							src="/vite.svg"
-							alt="vite-logo"
-							className="w-[1.5rem] sm:w-auto"
-						/>{" "}
-						<span>DocsDrive</span>
+							src="/assets/logo.png"
+							alt="site-logo"
+							className="w-[7rem] sm:w-[9rem]"
+						/>
 					</span>
 				</Link>
 			</h1>

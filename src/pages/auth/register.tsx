@@ -18,10 +18,10 @@ import { apiRegister } from "../../lib/api-client";
 import { Loader2 } from "lucide-react";
 import GoogleSignIn from "./_components/google-sign-in";
 import { useApiMutation } from "../../hooks/use-api";
+import InfoBox from "./_components/info-box";
 
 export default function Register() {
 	const navigate = useNavigate();
-	const [showMessageBox, setShowMessageBox] = useState(true);
 
 	const form = useForm<z.infer<typeof registerFormSchema>>({
 		resolver: zodResolver(registerFormSchema),
@@ -44,33 +44,16 @@ export default function Register() {
 		},
 	);
 
-	let messageBoxElem = (
-		<div className="fixed bottom-0 right-0 m-4 space-y-1 rounded-md border bg-white/90 p-4 text-sm backdrop-blur-sm sm:w-[20rem] sm:text-base">
-			<h1 className="text-xl font-semibold lg:text-2xl">
-				We're using cookies
-			</h1>
-			<p>
-				Before login or signup, please make sure your browser cookies are
-				enabled.
-			</p>
-			<button
-				className="rounded-sm border px-4 py-1 font-semibold"
-				onClick={() => setShowMessageBox((p) => !p)}
-			>
-				Close
-			</button>
-		</div>
-	);
-
 	return (
 		<div className="flex min-h-[80vh] items-center justify-center gap-4 rounded-sm p-2">
-			{showMessageBox ? messageBoxElem : null}
+			<InfoBox />
 			<div className="hidden h-[27rem] w-[50%] flex-col gap-4 bg-slate-100 p-4 md:flex">
 				<h1 className="flex items-center gap-1 sm:gap-2">
-					<img src="/vite.svg" alt="vite-logo" className="w-[1.5rem]" />{" "}
-					<span className="bg-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text font-extrabold text-transparent">
-						DocsDrive
-					</span>
+					<img
+						src="/assets/logo.png"
+						alt="site-logo"
+						className="w-[6rem]"
+					/>
 				</h1>
 				<h1 className="text-2xl font-bold text-neutral-600">
 					Join us today!
