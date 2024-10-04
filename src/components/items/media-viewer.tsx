@@ -17,7 +17,7 @@ const MediaViewer = ({ url, mediaType, children }: MediaViewerProps) => {
 				} overflow-auto p-2 sm:p-6`}
 			>
 				{mediaType === MediaType.PDF && (
-					<embed
+					<iframe
 						src={url}
 						className="h-full w-full"
 						style={{ border: "none" }}

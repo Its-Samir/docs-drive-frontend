@@ -12,7 +12,7 @@ export const ShowMedia = ({
 			className={`${mediaType === MediaType.PDF ? "h-[20rem]" : "h-auto"} w-auto overflow-auto md:w-[28rem]`}
 		>
 			{mediaType === MediaType.PDF && (
-				<embed src={media} className="h-full w-full" />
+				<iframe src={media} className="h-full w-full" />
 			)}
 			{mediaType === MediaType.IMAGE && (
 				<img src={media} alt="Media" loading="lazy" />
